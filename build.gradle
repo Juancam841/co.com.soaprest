@@ -27,7 +27,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 ext {
-    slf4jVersion = '1.7.7'
+    slf4jVersion = '1.7.35'
     serenityCoreVersion = '2.3.12'
     junitVersion = '4.12'
     assertJVersion = '3.8.0'
@@ -37,10 +37,12 @@ ext {
     lombokVersion = '1.18.16'
     javaFakerVersion = '1.0.2'
     serenityCucumberVersion = '2.4.24'
+
 }
 
 dependencies {
     implementation "ch.qos.logback:logback-classic:${logbackVersion}"
+    implementation 'junit:junit:4.13.1'
 
     testImplementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-junit:${serenityCoreVersion}",
@@ -54,7 +56,7 @@ dependencies {
             "io.rest-assured:json-schema-validator:${jsonSchemaValidatorVersion}",
             "io.rest-assured:json-path:${jsonPath}",
             "com.github.javafaker:javafaker:${javaFakerVersion}"
-
+            "org.slf4j:slf4j-api:${slf4jVersion}"
     annotationProcessor "org.projectlombok:lombok"
 
     compileOnly "org.projectlombok:lombok:${lombokVersion}"
