@@ -1,5 +1,6 @@
 package co.com.soaprest.interactions;
 
+import co.com.soaprest.exceptions.ErrorServiceException;
 import co.com.soaprest.model.TestData;
 import io.restassured.http.ContentType;
 import net.serenitybdd.rest.SerenityRest;
@@ -7,6 +8,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.rest.interactions.Get;
+import org.apache.http.HttpStatus;
 
 public class ExecuteGet implements Interaction {
     private final String resource;
@@ -21,6 +23,10 @@ public class ExecuteGet implements Interaction {
         actor.attemptsTo(
                 Get.resource(resource).with(request->request.contentType(ContentType.JSON).params(TestData.getData()).relaxedHTTPSValidation().log().all())
         );
+        if(SerenityRest.lastResponse().statusCode() != HttpStatus.SC_OK){
+            throw new ErrorServiceException("Apparently there is an error in the consumption of the service");
+        }
+
     }
 
     public static ExecuteGet service(String resource) {

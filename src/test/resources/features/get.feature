@@ -11,3 +11,4 @@ Feature: Get information of a single user
     And I validate schema response "GetJsonSchema"
     And I validate fields get response api
     And I validate get response contain data expected
+
