@@ -1,6 +1,7 @@
 package co.com.soaprest.stepdefinitions;
 
 import co.com.soaprest.questions.StatusCode;
+import co.com.soaprest.questions.TheFieldsResponseAre;
 import co.com.soaprest.questions.TheQuantifyFieldService;
 import co.com.soaprest.questions.TheSchemaIs;
 import co.com.soaprest.tasks.ConsumeGet;
@@ -51,7 +52,8 @@ public class GetStepDefinitions {
     }
     @Then("I validate fields get response api")
     public void iValidateFieldsGetResponseApi() {
-
+        OnStage.theActorInTheSpotlight()
+                .should(seeThat(TheFieldsResponseAre.expected()));
     }
     @Then("I validate get response contain data expected")
     public void iValidateGetResponseContainDataExpected() {
