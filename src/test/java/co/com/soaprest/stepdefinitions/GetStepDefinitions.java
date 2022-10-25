@@ -1,6 +1,8 @@
 package co.com.soaprest.stepdefinitions;
 
 import co.com.soaprest.questions.StatusCode;
+import co.com.soaprest.questions.TheQuantifyFieldService;
+import co.com.soaprest.questions.TheSchemaIs;
 import co.com.soaprest.tasks.ConsumeGet;
 import co.com.soaprest.tasks.Load;
 import co.com.soaprest.util.resource.WebServiceEndpoints;
@@ -12,6 +14,8 @@ import net.serenitybdd.screenplay.actors.OnStage;
 
 import java.util.List;
 import java.util.Map;
+
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 
 public class GetStepDefinitions {
     @Given("I load costumer information")
@@ -31,15 +35,19 @@ public class GetStepDefinitions {
     }
     @Then("I should see the status code {int}")
     public void iShouldSeeTheStatusCode(Integer responseCode) {
-        OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(StatusCode.is(responseCode)));
+        OnStage.theActorInTheSpotlight().should(
+                seeThat(StatusCode.is(responseCode)));
     }
     @Then("I validate quantity key is {int}")
-    public void iValidateQuantityKeyIs(Integer int1) {
+    public void iValidateQuantityKeyIs(Integer quantity) {
+        OnStage.theActorInTheSpotlight()
+                .should(seeThat(TheQuantifyFieldService.are(quantity)));
 
     }
     @Then("I validate schema response {string}")
-    public void iValidateSchemaResponse(String string) {
-
+    public void iValidateSchemaResponse(String schemaResponse) {
+        OnStage.theActorInTheSpotlight()
+                .should(seeThat(TheSchemaIs.expected(schemaResponse)));
     }
     @Then("I validate fields get response api")
     public void iValidateFieldsGetResponseApi() {
