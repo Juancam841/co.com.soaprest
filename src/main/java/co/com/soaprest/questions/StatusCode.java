@@ -15,7 +15,8 @@ public class StatusCode implements Question<Boolean> {
     @Override
     public Boolean answeredBy(Actor actor) {
         actor.should(
-                ResponseConsequence.seeThatResponse("Service Api response status code", response-> response.statusCode(code))
+                ResponseConsequence.seeThatResponse("Service Api response status code",
+                        response-> response.statusCode(code))
         );
         return true;
     }

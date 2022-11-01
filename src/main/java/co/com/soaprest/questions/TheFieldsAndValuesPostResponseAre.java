@@ -15,7 +15,7 @@ public class TheFieldsAndValuesPostResponseAre implements Question<Boolean> {
     public Boolean answeredBy(Actor actor) {
         actor.should(
                 seeThatResponse(String.format(VALIDATION_FIELDS_AND_VALUES, "post"),
-                        respose-> respose
+                        response-> response
                                 .assertThat()
                                 .body("name", equalTo(TestData.getData().get("name")))
                                 .body("job", equalTo(TestData.getData().get("job")))
