@@ -1,6 +1,6 @@
 package co.com.soaprest.stepdefinitions;
 
-import co.com.soaprest.exceptions.AssertionService;
+import co.com.soaprest.exceptions.AssertionsService;
 import co.com.soaprest.questions.*;
 import co.com.soaprest.tasks.ConsumeGet;
 import co.com.soaprest.tasks.Load;
@@ -32,14 +32,14 @@ public class GetStepDefinitions {
     public void iShouldSeeTheStatusCode(Integer responseCode) {
         OnStage.theActorInTheSpotlight().should(
                 seeThat(StatusCode.is(responseCode))
-                        .orComplainWith(AssertionService.class, AssertionService.THE_STATUS_CODE_SERVICE_IS_NOT_EXPECTED)
+                        .orComplainWith(AssertionsService.class, AssertionsService.THE_STATUS_CODE_SERVICE_IS_NOT_EXPECTED)
         );
     }
 
     @Then("I validate quantity key is {int}")
     public void iValidateQuantityKeyIs(Integer quantity) {
         OnStage.theActorInTheSpotlight().should(seeThat(TheQuantifyFieldService.are(quantity))
-                .orComplainWith(AssertionService.class, AssertionService.QUANTITY_SERVICE_RESPONSE_IS_NOT_EXPECTED)
+                .orComplainWith(AssertionsService.class, AssertionsService.QUANTITY_SERVICE_RESPONSE_IS_NOT_EXPECTED)
         );
 
     }
@@ -47,21 +47,21 @@ public class GetStepDefinitions {
     @Then("I validate schema response {string}")
     public void iValidateSchemaResponse(String schemaResponse) {
         OnStage.theActorInTheSpotlight().should(seeThat(TheSchemaIs.expected(schemaResponse))
-                .orComplainWith(AssertionService.class, AssertionService.THE_SCHEMA_SERVICE_RESPONSE_IS_NOT_EXPECTED)
+                .orComplainWith(AssertionsService.class, AssertionsService.THE_SCHEMA_SERVICE_RESPONSE_IS_NOT_EXPECTED)
         );
     }
 
     @Then("I validate fields get response api")
     public void iValidateFieldsGetResponseApi() {
         OnStage.theActorInTheSpotlight().should(seeThat(TheFieldsResponseAre.expected())
-                .orComplainWith(AssertionService.class, AssertionService.FIELDS_SERVICE_RESPONSE_IS_NOT_EXPECTED)
+                .orComplainWith(AssertionsService.class, AssertionsService.FIELDS_SERVICE_RESPONSE_IS_NOT_EXPECTED)
         );
     }
 
     @Then("I validate get response contain data expected")
     public void iValidateGetResponseContainDataExpected() {
         OnStage.theActorInTheSpotlight().should(seeThat(TheValuesResponseAre.expected())
-                .orComplainWith(AssertionService.class, AssertionService.CONTENT_DATA_SERVICE_RESPONSE_IS_NOT_EXPECTED)
+                .orComplainWith(AssertionsService.class, AssertionsService.CONTENT_DATA_SERVICE_RESPONSE_IS_NOT_EXPECTED)
         );
     }
 

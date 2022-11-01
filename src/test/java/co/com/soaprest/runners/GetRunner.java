@@ -7,6 +7,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 
     @RunWith(CucumberWithSerenity.class)
     @CucumberOptions(
+            tags = "@Regression",
             features = "src/test/resources/features/get.feature",
             glue = {"co.com.soaprest.stepdefinitions", "co.com.soaprest.stepdefinitions.hook.Hook"},
             snippets = SnippetType.CAMELCASE
