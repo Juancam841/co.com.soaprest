@@ -12,6 +12,7 @@ public class AssertionsService extends AssertionError {
     public static final String SCHEMA_SERVICE_IS_NOT_EXPECTED = "Schema service response is not expected";
     public static final String QUANTITY_FIELDS_SERVICE_IS_NOT_EXPECTED = "Quantity fields services is not expected";
     public static final String THE_FIELDS_AND_VALUES_POST_SERVICE_IS_NOT_EXPECTED = "The fields and values post services response is not expected";
+    public static final String THE_FIELDS_AND_VALUES_GET_SERVICE_IS_NOT_EXPECTED = "The fields and values get services response is not expected";
 
     public AssertionsService(String message, Throwable cause) {
         super(message, cause);

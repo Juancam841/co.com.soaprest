@@ -58,7 +58,6 @@ Feature: Post information of a user
     Given I load costumer information
       | name   | job   |
       | <name> | <job> |
-
     When I call post user API
     Then I validate post response contain data initial
 

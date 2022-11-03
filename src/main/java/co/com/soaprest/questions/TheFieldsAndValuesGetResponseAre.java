@@ -5,7 +5,7 @@ import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.rest.questions.ResponseConsequence;
 import org.hamcrest.Matchers;
 
-public class TheValuesResponseAre implements Question<Boolean> {
+public class TheFieldsAndValuesGetResponseAre implements Question<Boolean> {
 
     @Override
     public Boolean answeredBy(Actor actor) {
@@ -24,7 +24,7 @@ public class TheValuesResponseAre implements Question<Boolean> {
         return true;
     }
 
-    public static TheValuesResponseAre expected() {
-        return new TheValuesResponseAre();
+    public static TheFieldsAndValuesGetResponseAre expected() {
+        return new TheFieldsAndValuesGetResponseAre();
     }
 }
